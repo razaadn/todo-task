@@ -166,7 +166,7 @@ class _MessagesState extends State<HomePage2> {
     );
   }
 
-  logoutDialog(context, _todoDescriptionFormController) async {
+  logoutDialog(context, _todoDescriptionFormControlle) async {
     await showDialog<String>(
       context: context,
       barrierDismissible: false,
@@ -247,7 +247,7 @@ class _MessagesState extends State<HomePage2> {
                                   side: BorderSide(color: Colors.white)),
                               onPressed: () {
                                 final newTodo = Todo(
-                                    description: _todoDescriptionFormController,
+                                    description: _todoDescriptionFormControlle,
                                     datetime: today.toString());
                                 if (newTodo.description.isNotEmpty) {
                                   /*Create new Todo object and make sure
@@ -268,7 +268,7 @@ class _MessagesState extends State<HomePage2> {
                                   });
                                   setState(() {
                                     addtext = false;
-
+                                    _todoDescriptionFormController.clear();
                                   });
                                 }
 
@@ -572,6 +572,7 @@ class _MessagesState extends State<HomePage2> {
                             ? Colors.black
                             : COLORS[new Random().nextInt(4)],
                         child: Column(
+                          mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
